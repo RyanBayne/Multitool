@@ -43,3 +43,15 @@ Permissions of this strong copyleft license are conditioned on making available 
 * Warranty
 
 # Project Links
+* Text Tutorials: http://multitool.wordpress.com
+* Bugs/Issues: https://github.com/RyanBayne/Multitool/issues
+* Authors Twitter: http://www.twitter.com/ryan_r_bayne
+* Donations:  https://www.patreon.com/ryanbayne
+* Documentation: https://github.com/RyanBayne/Multitool/wiki
+* Skype Live Support Chat: https://join.skype.com/gYIB2M6NF8S2
+* Discord Live Support Chat: https://discord.gg/xBNYA7Q
+* Professional Chat: https://ryanbayne.slack.com/threads/team/squeekycoder/ 
+* Plugin on WordPress.org: https://wordpress.org/support/plugin/multitool
+* Request A Feature: https://wordpress.org/support/plugin/multitool
+* Plugin Forum: https://wordpress.org/support/plugin/multitool
+* Reviews: https://wordpress.org/support/plugin/multitool/reviews/
