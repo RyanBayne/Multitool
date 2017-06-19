@@ -4,11 +4,11 @@
  * Plugin URI: https://www.wordpress.org/plugins/multitool
  * Github URI: https://github.com/ryanbayne/multitool
  * Description: The Swiss-Army-Plugin for WordPress. 
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: Ryan Bayne
  * Author URI: https://multitool.wordpress.com/
  * Requires at least: 4.4
- * Tested up to: 4.7
+ * Tested up to: 4.8
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
  * Domain Path: /i18n/languages/
@@ -38,7 +38,7 @@ final class WordPressMultitool {
      *
      * @var string
      */
-    public $version = '1.2.0';
+    public $version = '1.2.1';
 
     /**
      * Minimum WP version.
@@ -152,7 +152,6 @@ final class WordPressMultitool {
         if ( ! defined( 'MULTITOOL_HOME' ) ) { define( 'MULTITOOL_HOME', 'https://multitool.wordpress.com/' ); }
         if ( ! defined( 'MULTITOOL_FORUM' ) ) { define( 'MULTITOOL_FORUM', 'https://multitool.slack.com/' ); }
         if ( ! defined( 'MULTITOOL_TWITTER' ) ) { define( 'MULTITOOL_TWITTER', false ); }
-        if ( ! defined( 'MULTITOOL_TRELLO' ) ) { define( 'MULTITOOL_TRELLO', 'https://trello.com/b/aFGDfb8T/wp-multitool' ); }
         if ( ! defined( 'MULTITOOL_DONATE' ) ) { define( 'MULTITOOL_DONATE', 'https://www.patreon.com/ryanbayne' ); }
         if ( ! defined( 'MULTITOOL_SKYPE' ) ) { define( 'MULTITOOL_SKYPE', 'https://join.skype.com/bVtDaGHd9Nnl' ); }
         if ( ! defined( 'MULTITOOL_GITHUB' ) ) { define( 'MULTITOOL_GITHUB', 'https://github.com/RyanBayne/multitool' ); }
@@ -165,7 +164,6 @@ final class WordPressMultitool {
         if ( ! defined( 'MULTITOOL_AUTHOR_HOME' ) ) { define( 'MULTITOOL_AUTHOR_HOME', 'https://www.linkedin.com/in/ryanrbayne/' ); }
         if ( ! defined( 'MULTITOOL_AUTHOR_FORUM' ) ) { define( 'MULTITOOL_AUTHOR_FORUM', false ); }
         if ( ! defined( 'MULTITOOL_AUTHOR_TWITTER' ) ) { define( 'MULTITOOL_AUTHOR_TWITTER', 'http://www.twitter.com/Ryan_R_Bayne' ); }
-        if ( ! defined( 'MULTITOOL_AUTHOR_TRELLO' ) ) { define( 'MULTITOOL_AUTHOR_TRELLO', 'https://trello.com/ryanrbayne1' ); }
         if ( ! defined( 'MULTITOOL_AUTHOR_FACEBOOK' ) ) { define( 'MULTITOOL_AUTHOR_FACEBOOK', 'https://www.facebook.com/ryanrbayne' ); }
         if ( ! defined( 'MULTITOOL_AUTHOR_DONATE' ) ) { define( 'MULTITOOL_AUTHOR_DONATE', 'https://www.patreon.com/ryanbayne' ); }
         if ( ! defined( 'MULTITOOL_AUTHOR_SKYPE' ) ) { define( 'MULTITOOL_AUTHOR_SKYPE', 'https://join.skype.com/gNuxSa4wnQTV' ); }
@@ -188,13 +186,18 @@ final class WordPressMultitool {
         include_once( 'includes/class.multitool-ajax.php' );
         include_once( 'includes/class.multitool-configurationtools.php' );
         
-        if ( $this->is_request( 'admin' ) ) {
+        if ( multitool_is_request( 'admin' ) ) {
             include_once( 'includes/admin/class.multitool-admin.php' );
         }
 
-        if ( $this->is_request( 'frontend' ) ) {
+        if ( multitool_is_request( 'frontend' ) ) {
             $this->frontend_includes();
         }
+
+        // Create listener objects if switches are set to 'yes'.
+        if( get_option( 'multitool_main_listener_switch' ) == 'yes' ) {          
+            include_once( 'includes/class.multitool-listener.php' );       
+        } 
     }
 
     /**
@@ -210,7 +213,7 @@ final class WordPressMultitool {
     public function init() {                     
         // Before init action.
         do_action( 'before_multitool_init' );
-
+            
         // Init action.
         do_action( 'multitool_init' );
     }
@@ -237,31 +240,9 @@ final class WordPressMultitool {
      */
     public function ajax_url() {                
         return admin_url( 'admin-ajax.php', 'relative' );
-    }
-
-    /**
-     * What type of request is this?
-     *
-     * Functions and constants are WordPress core. This function will allow
-     * you to avoid large operations or output at the wrong time.
-     * 
-     * @param  string $type admin, ajax, cron or frontend.
-     * @return bool
-     */
-    private function is_request( $type ) {
-        switch ( $type ) {
-            case 'admin' :
-                return is_admin();
-            case 'ajax' :
-                return defined( 'DOING_AJAX' );
-            case 'cron' :
-                return defined( 'DOING_CRON' );
-            case 'frontend' :
-                return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
-        }
-    }    
+    } 
 }
-
+       
 endif;
 
 if( !function_exists( 'GlobalMultitool' ) ) {
@@ -279,8 +260,5 @@ if( !function_exists( 'GlobalMultitool' ) ) {
 
     // Global for backwards compatibility.
     $GLOBALS['multitool'] = GlobalMultitool();
-    
-    //$multitool_debug = new Multitool_Debug();
-    //$multitool_debug->debugmode();   
 }
 

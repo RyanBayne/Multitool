@@ -57,7 +57,10 @@ class Multitool_Admin_Settings {
             include_once( 'settings/class.multitool-settings-page.php' );
 
             $settings[] = include( 'settings/class.multitool-security-tools.php' );
+            //$settings[] = include( 'settings/class.multitool-plugin-tools.php' );
+            $settings[] = include( 'settings/class.multitool-developer-tools.php' );
             $settings[] = include( 'settings/class.multitool-plugin-settings.php' ); 
+            
             
             self::$settings = apply_filters( 'multitool_get_settings_pages', $settings );
         }

@@ -1,19 +1,10 @@
 /* global multitool_admin */
 
 /**
- * Multitool Admin JS
+ * Multitool Configuration Tools show/hide Functionality
  */
 jQuery( function ( $ ) {
 
-    // Demo store notice
-    $( 'input#woocommerce_demo_store' ).change(function() {
-        if ( $( this ).is( ':checked' ) ) {
-            $( '#woocommerce_demo_store_notice' ).closest( 'tr' ).show();
-        } else {
-            $( '#woocommerce_demo_store_notice' ).closest( 'tr' ).hide();
-        }
-    }).change();
-    
     // Administration Accounts Cap
     $( 'input#adminaccountscap_activate' ).change(function() {
         if ( $( this ).is( ':checked' ) ) {
@@ -28,4 +19,13 @@ jQuery( function ( $ ) {
         }
     }).change();    
 
+    // Maintenace Mode
+    $( 'input#multitool_maintenancemode_activate' ).change(function() {
+        if ( $( this ).is( ':checked' ) ) {
+            $( '#multitool_maintenancemode_timelimit' ).closest( 'tr' ).show();
+        } else {
+            $( '#multitool_maintenancemode_timelimit' ).closest( 'tr' ).hide();
+        }
+    }).change();    
+    
 });

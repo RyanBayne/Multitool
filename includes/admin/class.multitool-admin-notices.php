@@ -315,6 +315,30 @@ class Multitool_Admin_Notices {
     public static function install_notice() {
         include( 'notices/install.php' );
     }
+    
+    public static function notice( $type, $title, $description, $dismissible = false ) {
+        self::$type( $title, $description, $dismissible );    
+    }
+    
+    public static function error( $title, $desc, $dismissible = false ) {
+        $d = ''; if( $dismissible ){ $d = ' is-dismissible'; }
+        ?><div class="notice notice-error<?php echo $d; ?>>"><p><?php echo '<strong>' . $title . ': </strong>' . $desc; ?>.</p></div><?php     
+    } 
+    
+    public static function warning( $title, $desc, $dismissible = false ) {
+        $d = ''; if( $dismissible ){ $d = ' is-dismissible'; }
+        ?><div class="notice notice-warning<?php echo $d; ?>"><p><?php echo '<strong>' . $title . ': </strong>' . $desc; ?>.</p></div><?php     
+    } 
+    
+    public static function success( $title, $desc, $dismissible = false ) {
+        $d = ''; if( $dismissible ){ $d = ' is-dismissible'; }
+        ?><div class="notice notice-success<?php echo $d; ?>"><p><?php echo '<strong>' . $title . ': </strong>' . $desc; ?>.</p></div><?php     
+    } 
+    
+    public static function info( $title, $desc, $dismissible = false ) {
+        $d = ''; if( $dismissible ){ $d = ' is-dismissible'; }
+        ?><div class="notice notice-info<?php echo $d; ?>"><p><?php echo '<strong>' . $title . ': </strong>' . $desc; ?>.</p></div><?php     
+    } 
 }
 
 endif;

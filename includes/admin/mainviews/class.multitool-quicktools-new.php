@@ -12,7 +12,7 @@ if ( ! class_exists( 'Multitool_ListTable_QuickTools' ) ) {
  *
  * @author      Ryan Bayne
  * @category    Admin
- * @package     Multitool/Admin/Reports
+ * @package     Multitool/Admin
  * @version     1.0.0
  */
 class Multitool_QuickTools_New extends Multitool_ListTable_QuickTools {

@@ -111,7 +111,7 @@ function multitool_help_tip( $tip, $allow_html = false ) {
     }
 
     return '<span class="multitool-help-tip" data-tip="' . $tip . '"></span>';
-}
+}                 
 
 /**
  * Queue some JavaScript code to be output in the footer.
@@ -164,4 +164,26 @@ function multitool_getUsersByRole( $roles ) {
     $userIDs = $wpdb->get_col( $sql );
     
     return $userIDs;
+}
+
+/**
+ * What type of request is this?
+ *
+ * Functions and constants are WordPress core. This function will allow
+ * you to avoid large operations or output at the wrong time.
+ * 
+ * @param  string $type admin, ajax, cron or frontend.
+ * @return bool
+ */
+function multitool_is_request( $type ) {
+    switch ( $type ) {
+        case 'admin' :
+            return is_admin();
+        case 'ajax' :
+            return defined( 'DOING_AJAX' );
+        case 'cron' :
+            return defined( 'DOING_CRON' );
+        case 'frontend' :
+            return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
+    }
 }

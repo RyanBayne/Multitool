@@ -46,7 +46,6 @@ class Multitool_Admin_Help {
             'content'   => '<h2>' . __( 'Help &amp; Support', 'multitool' ) . '</h2>' . 
             '<p><a href="' . MULTITOOL_SKYPE . '" class="button button-primary">' . __( 'Skype', 'multitool' ) . 
             '</a> <a href="' . MULTITOOL_AUTHOR_SLACK .'" class="button button-primary">' . __( 'Slack', 'multitool' ) . 
-            '</a> <a href="' . MULTITOOL_TRELLO . '" class="button button-primary">' . __( 'Trello', 'multitool' ) . 
             '</a> <a href="' . MULTITOOL_GITHUB . '/issues" class="button button-primary">' . __( 'Bugs', 'multitool' ) . '</a> </p>',
         ) );
 

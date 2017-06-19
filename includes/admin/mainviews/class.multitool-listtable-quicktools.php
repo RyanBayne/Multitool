@@ -50,12 +50,12 @@ class Multitool_ListTable_QuickTools extends WP_List_Table {
     public function query_items() {
         $quick_tools = new Multitool_QuickTools();
         $quick_tools->return_tool_info = true;
-        
         $tools_info_array = array();
+        $tool_parameters_array = array();
         
         foreach( get_class_methods( 'Multitool_QuickTools' ) as $tool ) {
             if( substr( $tool, 0, 5 ) !== "tool_" ) { continue; } 
-            eval( '$tool_info = $quick_tools->$tool();');
+            eval( '$tool_info = $quick_tools->$tool( $tool_parameters_array );');
             
             // Capability check.
             if( !current_user_can( $tool_info['capability'] ) ) { continue; }
@@ -94,7 +94,7 @@ class Multitool_ListTable_QuickTools extends WP_List_Table {
 	 */
 	public function output_result() {
 		$this->prepare_items();
-		echo '<div id="poststuff" class="multitool-reports-wide">';
+		echo '<div id="poststuff" class="multitool-tables-wide">';
         echo '<form id="multitool-list-table-form-quicktools" method="post">';
 		$this->display();
         echo '<form>';
@@ -130,9 +130,21 @@ class Multitool_ListTable_QuickTools extends WP_List_Table {
             case 'header_action' :
             
                 $nonce = wp_create_nonce( 'quicktool_action' );
-                $url   = self_admin_url( 'tools.php?page=multitool-quick&_wpnonce=' . $nonce . '&toolname=' . $item['name'] );   
-                echo '<a href="' . $url . '" class="button button-primary">' . __( 'Run Tool', 'multitool' ) . '</a>';
-                    
+                
+                // Establish single (default) or multiple action tools.
+                if( !isset( $item['actions'] ) || !is_array( $item['actions'] ) ) {
+                    $url   = self_admin_url( 'tools.php?page=multitool-quick&_wpnonce=' . $nonce . '&toolname=' . $item['name'] );   
+                    echo '<a href="' . $url . '" class="button button-primary">' . __( 'Run Tool', 'multitool' ) . '</a>';
+                } else {
+                    $i = 0;
+                    foreach( $item['actions'] as $action => $attributes ) {
+                        if( $i > 0 ) { echo '<br><br>'; }
+                        $url   = self_admin_url( 'tools.php?page=multitool-quick&_wpnonce=' . $nonce . '&toolname=' . $item['name'] . '&action=' . $action );   
+                        echo '<a href="' . $url . '" class="button button-primary">' . $attributes['title'] . '</a>';  
+                        ++$i;
+                    }    
+                }
+                
             break;
 
 		}

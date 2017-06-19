@@ -1,10 +1,10 @@
 <?php
 /**
- * Multitool Admin Reports
+ * Multitool Main Admin Views
  *
  * @author      Multitool
  * @category    Admin
- * @package     Multitool/Admin/Reports
+ * @package     Multitool/Admin
  * @version     1.0.0
  */
 
@@ -20,7 +20,7 @@ if ( ! class_exists( 'Multitool_Admin_Main_Views' ) ) :
 class Multitool_Admin_Main_Views {
 
     /**
-     * Handles output of the reports page in admin.
+     * Handles output of the main tables page in admin.
      */
     public static function output() {       
         $tabs              = self::get_tabs();
@@ -32,7 +32,7 @@ class Multitool_Admin_Main_Views {
     }
 
     /**
-     * Returns the definitions for the reports to show in admin.
+     * Returns the definitions for custom views within the main table view.
      *
      * @return array
      */
@@ -76,7 +76,7 @@ class Multitool_Admin_Main_Views {
     }
 
     /**
-     * Get a report from our reports subfolder.
+     * Get a report from our table view from the subfolder.
      */
     public static function get_maintabview( $name_presan ) {     
         $name  = sanitize_title( str_replace( '_', '-', $name_presan ) );

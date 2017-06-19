@@ -2,7 +2,7 @@
 /**
  * Multitool - Primary Logging Interface
  *
- * This class is not final. There is a task in the projects Trello for 
+ * This class is not final. There is a task in the projects GitHub issues for 
  * version 2.0 which details a far better log and trace system.
  *
  * @author   Ryan Bayne

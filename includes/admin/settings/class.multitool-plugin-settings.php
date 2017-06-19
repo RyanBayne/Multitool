@@ -101,7 +101,7 @@ class Multitool_Plugin_Settings extends Multitool_Settings_Page {
 
             ));
         } else {
-            $settings = apply_filters( 'multitool_checkboxesexamples_general_settings', array(
+            $settings = apply_filters( 'multitool_general_settings', array(
  
                 array(
                     'title' => __( 'Logging Settings', 'multitool' ),
@@ -145,6 +145,48 @@ class Multitool_Plugin_Settings extends Multitool_Settings_Page {
                     'id'     => 'multitool_logging_settings'
                 ),
 
+                array(
+                    'title' => __( 'Listener Controls', 'multitool' ),
+                    'type'     => 'title',
+                    'desc'     => __( 'Listeners are parts of the plugin that decide what tools to run anytime a page is loaded. Switching listeners off will switch off any tools that depend on them. Those are tools that are automated.', 'multitool' ),
+                    'id'     => 'multitool_listener_control_settings',
+                ),
+
+                array(
+                    'title'           => __( 'Listener Switches', 'multitool' ),
+                    'desc'            => __( 'Main Listener Switch', 'multitool' ),
+                    'id'              => 'multitool_main_listener_switch',
+                    'default'         => 'yes',
+                    'type'            => 'checkbox',
+                    'checkboxgroup'   => 'start',
+                    'show_if_checked' => 'option',
+                    'autoload'        => true,
+                ),
+
+                array(
+                    'desc'            => __( 'Public Listener Switch', 'multitool' ),
+                    'id'              => 'multitool_public_listener_switch',
+                    'default'         => 'yes',
+                    'type'            => 'checkbox',
+                    'checkboxgroup'   => '',
+                    'show_if_checked' => 'yes',
+                    'autoload'        => true,
+                ),
+
+                array(
+                    'desc'            => __( 'Admin Listener Switch', 'multitool' ),
+                    'id'              => 'multitool_admin_listener_switch',
+                    'default'         => 'yes',
+                    'type'            => 'checkbox',
+                    'checkboxgroup'   => 'end',
+                    'show_if_checked' => 'yes',
+                    'autoload'        => true,
+                ),
+                                    
+                array(
+                    'type'     => 'sectionend',
+                    'id'     => 'multitool_listener_control_settings'
+                ),                
             ));
         }
 

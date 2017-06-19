@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'Multitool_Security_Tools' ) ) :
 
 /**
- * Multitool_Settings_Example.
+ * Multitool_Security_Tools.
  */
 class Multitool_Security_Tools extends Multitool_Settings_Page {
 
@@ -39,7 +39,7 @@ class Multitool_Security_Tools extends Multitool_Settings_Page {
      */
     public function get_settings() {
 
-        $settings = apply_filters( 'multitool_example_settings', array(
+        $settings = apply_filters( 'multitool_security_tools_settings', array(
 
             array( 'title' => __( 'Administrator Accounts Cap', 'multitool' ), 
                    'type' => 'title', 
@@ -84,7 +84,9 @@ class Multitool_Security_Tools extends Multitool_Settings_Page {
                 )
             ),
                                     
-            array( 'type' => 'sectionend', 'id' => 'multitool_configtool_adminaccountscap'),
+            array( 
+                'type' => 'sectionend', 
+                'id' => 'multitool_configtool_adminaccountscap'),
             
         ) );
 

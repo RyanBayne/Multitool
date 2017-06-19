@@ -5,8 +5,8 @@ License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: Seed, Grow, Template Plugin, Extensions, Core Plugin, Extendable, Extend
 Requires at least: 4.2
-Tested up to: 4.7
-Stable tag: 1.2.0   
+Tested up to: 4.8
+Stable tag: 1.2.1   
                
 Multitool is the Swiss-Army-Plugin for WordPress.
                        
@@ -34,29 +34,17 @@ an extension will be very low.
 
 = Support =
 
-This project is supported. 
+This project is supported with live chat, forums, community patrons with monthly donations and free development. 
 
 - [GitHub](https://github.com/ryanbayne/multitool)
 - [Slack](https://ryanbayne.slack.com/)
 - [Discord Live Chat](https://discord.gg/xBNYA7Q)
 - [Report Issues](https://github.com/RyanBayne/Multitool/issues)
-- [Submit Ideas](https://trello.com/b/PEkkYDAJ/multitool)
-- [View Roadmap](https://trello.com/b/PEkkYDAJ/multitool)
 - [Blog](https://multitool.wordpress.com/)
-                                                                                          
-= Contribute =
-
-Please become a Patreon(.com) to support this project and increase the rate of updates.
-
-* <a href="https://www.patreon.com/ryanbayne" title="">Patreon (preffered)</a>         
-
-= Social & Professional Networking =
-
-Connect with Ryan on any website you need more contacts on. If it's not in this list just ask for the link. 
-                                     
-- [LinkedIn](https://www.linkedin.com/in/ryanrbayne/)
-- [Facebook](https://facebook.com/ryanrbayne)
-- [Twitter](https://twitter.com/ryanrbayne)
+- [Donate](https://www.patreon.com/ryanbayne/)                  
+- [Authors LinkedIn](https://www.linkedin.com/in/ryanrbayne/)
+- [Authors Facebook](https://facebook.com/ryanrbayne)
+- [Authors Twitter](https://twitter.com/ryanrbayne)
 
 == Installation ==
 
@@ -67,7 +55,7 @@ Connect with Ryan on any website you need more contacts on. If it's not in this 
 == Frequently Asked Questions ==
 
 = Can I hire you to customize the plugin for me? =
-Yes, you can hire me for urgent work otherwise post your request in the projects Trello board or GitHub. 
+Yes, you can hire me for a very small fee because I know the plugin well and can upgrade it quicker than anyone else.
 
 == Screenshots ==
 
@@ -85,7 +73,15 @@ No special upgrade instructions this time.
 
 == Changelog ==
 
-= 1.2.0 on TBC =
+= 1.2.1 released 19th June 2017 = 
+* GEN -> All use of Trello removed.
+* GEN -> multitool_example_settings renamed to multitool_security_tools_settings
+* NEW -> Display Error tool added to Quick Tools
+* NEW -> Maintenance Mode tool added, display the old "Under Construction" to all visitors.
+* DEV -> New methods in notice class: notice(), error(), warning(), success(), info()
+* DEV -> Tools can now exist on both Quick Tools and Configuration Tools views. 
+
+= 1.2.0 =
 * NEW -> Plugin re-built from scratch.
 * NEW -> Quick Tools table (more tools coming soon)
 * NEW -> Configuration Tools view for tools with options.
@@ -102,6 +98,9 @@ Donators, GitHub contributors and developers who support me when working on WP S
 * Igor Vaynberg
 * M. Alsup
 * Amir-Hossein Sobhi
+* Thomas Griffin
+* Gary Jones 
+* Juliette Reinders Folmer
 
 == Version Numbers Explained ==
 
