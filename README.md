@@ -1,8 +1,16 @@
-# WordPress Multitool Plugin by Ryan
+# WordPress Multitool Plugin
 
-The Swiss-Army-Plugin for WordPress by Ryan
+The Swiss-Army-Plugin for WordPress
 
 There is no other plugin like Multitool. The unique approach taking in Multitool ensures that the toolbox plugin doesn't clutter your blog administration menus. There are three different tool types: Quick Tools, Configuration Tools and Advanced Tools. The plugin is expected to grow without limitations thanks to tidy user-interfaces. So when you need a new tool or feature in WordPress that normally requires another plugin after a Google search. Instead, come back to Multitool! If the plugin doesn't already have what you need I will add it.
+
+## Stable Source 
+This WordPress plugin should be downloaded from WordPress.org only. That repository is the 
+official source for the latest stable version for live production. 
+
+Changes will be committed to this master frequently until the project is more established. If
+you do somehow add this package to your WordPress installation and wish to role-back. You can
+download any past version from the plugins development page on WordPRess.org. 
 
 ## Main Features
 * The plugin offers an opportunity for blog owners to setup a range of tools with a familiar interface. 
